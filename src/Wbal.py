@@ -48,7 +48,7 @@ def tau_w3(power, CP):
         # print(i)
         if power[i] < CP:
             Wrecovery = power[i]
-#             tau_w[i] = 546 * np.exp(-0.01 * (CP - Wrecovery)) + 316
+#             tau_w[i] = 546 * np.exp(-0.01 * (CP - Wrecovery)) + 316 5187, 789,
             tau_w[i] = 797.4379*(CP-Wrecovery)**-0.4112
         else:
             tau_w[i] = 0  # You may adjust this part based on your specific logic
