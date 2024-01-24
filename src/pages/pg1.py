@@ -518,7 +518,7 @@ def build_graph(rider, TT, sl_CdA, BW, direction, strenght, CRR, CP, W, Density,
         int_value_b = int(b.values[0])
 
         df["TTdata"].loc[int_value_b] = riderdata.loc[int_value_a]
-        save_pandas_data(df, "TT_data.pickle")
+        # save_pandas_data(df, "TT_data.pickle")
         # file_path = r'C:\Users\teunv\Dropbox (Personal)\2024\TT analysis\Data23\TT_data.pickle'
         # # Open the file in binary write mode (wb)
         # with open(file_path, 'wb') as file:
