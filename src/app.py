@@ -3,6 +3,10 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 
 app = dash.Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.SPACELAB])
+def before_first_request():
+    print("Executing before the first request")
+
+
 server = app.server
 
 sidebar = dbc.Nav(
