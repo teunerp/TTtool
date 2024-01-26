@@ -332,6 +332,7 @@ def build_graph(ridersdata, racedata):
 
         racenewdata1.loc[racenewdata1['rider'] == name,  'Wbal']  = Wbal3(test_reset, cp, W)
         racenewdata1.loc[racenewdata1['rider'] == name, '%Wbal'] = Wbal3(test_reset, cp, W)/W
+        print(racenewdata1[["power","Wbal"]])
         # wbal = Wbal3(test_reset, 400, W)
 
         # racenewdata.loc[racenewdata['rider'] == name,  'wbal'] = Wbal3(racenewdata.loc[racenewdata['rider'] == name], cp, W)
