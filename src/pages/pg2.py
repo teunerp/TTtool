@@ -12,7 +12,7 @@ from Wbal import Wbal3
 
 dash.register_page(__name__,
                    path='/tips',  # represents the url text
-                   name='Test test',  # name of page, commonly used as name of link
+                   name='Analysis',  # name of page, commonly used as name of link
                    title='Tips'  # epresents the title of browser's tab
 )
 

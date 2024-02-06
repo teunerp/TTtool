@@ -5,7 +5,7 @@ import plotly.express as px
 dash.register_page(__name__,
                    path='/IndividualAnalysis',
                    name='Individual',
-                   title='New heatmaps',
+                   title='Individual',
                    # image='pg3.png',
                    # description='Learn all about the heatmap.'
 )
