@@ -338,8 +338,8 @@ def build_graph(tt, Rider):
     BW = round(riderdata["BW"][0], 1)
     min_BW  = BW-6
     max_BW  = BW+6
-    # marks_BW = {round(i, 1): str('%.1f' % round(i, 1)) for i in np.arange(BW - 5, BW + 5, 3.0)}
-    marks_BW = {i: str(i) for i in range(min_BW, max_BW, 2)}
+    marks_BW = {round(i, 1): str('%.1f' % round(i, 1)) for i in np.arange(BW - 5, BW + 5, 3.0)}
+    # marks_BW = {i: str(i) for i in range(min_BW, max_BW, 2)}
 
     #set CdA
     CdA = round(riderdata["CdA"][0], 3)
