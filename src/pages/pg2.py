@@ -332,7 +332,7 @@ def build_graph(ridersdata, racedata):
 
         racenewdata1.loc[racenewdata1['rider'] == name,  'Wbal']  = Wbal3(test_reset, cp, W)
         racenewdata1.loc[racenewdata1['rider'] == name, '%Wbal'] = Wbal3(test_reset, cp, W)/W
-        print(racenewdata1[["power","Wbal"]].head(50))
+
         # wbal = Wbal3(test_reset, 400, W)
 
         # racenewdata.loc[racenewdata['rider'] == name,  'wbal'] = Wbal3(racenewdata.loc[racenewdata['rider'] == name], cp, W)
@@ -510,7 +510,8 @@ def build_graph(slider, moving, racenewdata, riders, para1, para2, segment):
     if len(riders) > 1:
         df_filt_riders = df_filt_riders[df_filt_riders['segments'] == segment]
 
-
+    print("new")
+    print(df_filt_riders['segments'])
     df_results_segment = df_filt_riders.groupby(['rider','segments']).agg({
             'distance': ['first',"last"],
             'pacing': ["mean"],
