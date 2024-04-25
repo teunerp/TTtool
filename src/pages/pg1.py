@@ -7,8 +7,9 @@ from dash import Dash, dcc, dash_table, html, Input, Output, callback_context, c
 import dash_bootstrap_components as dbc
 import pickle
 from datetime import datetime
-from dash_iconify import DashIconify
-icon = DashIconify(icon="carbon:save")
+# from dash_iconify import DashIconify
+# #
+# icon = DashIconify(icon="carbon:save")
 # from cheungsmethod import n_wind_to_degrees
 from cheungsmethod import cheungsmethod
 from Wbal import Wbal3
@@ -272,7 +273,7 @@ dbc.Row([
 
 
     dbc.Col([
-        dbc.Button(icon, id="button", size="lg", color="success", n_clicks=0),
+        dbc.Button("Primary", id="button", size="lg", color="success", n_clicks=0),
         ], width={'size': 4, 'offset': 1})
     ]),
 
