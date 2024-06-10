@@ -390,6 +390,7 @@ def build_graph(slider, moving, racenewdata, riders, para1, para2, segment):
     # from here data is chosen by sliders
     analyseddata = df_filt_riders[(df_filt_riders["distance"] > slider[0]/2) & (df_filt_riders["distance"] < slider[1]/2)]
     min_secs_per_rider = analyseddata.groupby('rider')['secs'].min()
+
     # Step 2: Subtract the minimum 'secs' value from each row for the corresponding rider
     analyseddata.loc[:,'secs_difference'] = analyseddata.apply(lambda row: row['secs'] - min_secs_per_rider[row['rider']], axis=1)
 
@@ -498,20 +499,30 @@ def build_graph(slider, moving, racenewdata, riders, para1, para2, segment):
 
 
     # make table 2
-    df_results = analyseddata.groupby('rider').agg({'power': ['max', 'mean'], 'speed': ['mean'],'watts/kg': ['mean'],"timediff": "last"}).round(1)
+    df_results = analyseddata.groupby('rider').agg({'power': ['max', 'sum'], 'speed': ['sum'],'watts/kg': ['sum'],"timediff": "last"}).round(1)
+    # Group by rider and aggregate power data
+
+
+    # Calculate total time for each rider
+    df_time = analyseddata.groupby('rider')["secs"].max() - analyseddata.groupby('rider')["secs"].min()
+    df_time = df_time.reset_index()
+    print(analyseddata)
+    # Flatten the multi-level column index
+
+
     df_results.columns = df_results.columns.droplevel()
     df_results.reset_index(inplace=True)
     df_results.columns = ["", "max W","avg W", "avg Speed","avg W/kg",'Timediff']
-
-
+    print(df_results)
+    print(df_time)
+    df_results["avg W"]=df_results["avg W"]/ df_time['secs']
+    print(df_results)
 
 
     #make table with segements
     if len(riders) > 1:
         df_filt_riders = df_filt_riders[df_filt_riders['segments'] == segment]
 
-    print("new")
-    print(df_filt_riders['segments'])
     df_results_segment = df_filt_riders.groupby(['rider','segments']).agg({
             'distance': ['first',"last"],
             'pacing': ["mean"],

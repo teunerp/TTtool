@@ -458,7 +458,7 @@ def build_graph(rider, TT, sl_CdA, BW, direction, strenght, CRR, CP, W, Density,
 
 
     df_data.loc[:,'altitude_new'] = cheungsmethod(df_data, drivechain, total_mass, gravity, CRR, density, CdA)
-
+    print(df_data.loc[:,'altitude_new'])
     # cheungs method
     # df_data.loc[:,'altitude_new'] = alt_diff_result
     df_data.loc[:,'altitude_new'] = df_data['altitude_new'].cumsum()
