@@ -19,14 +19,14 @@ dash.register_page(__name__,
 
 # df = get_pandas_data("TT_data.pickle")
 # Example usage to load a .pickle file
-# file_path = f"C://Users//teunv//Dropbox (Personal)//2024//TT analysis//Data23//TT_data.pickle"
-# with open(file_path, 'rb') as file:
-#     # Load the data from the pickle file
-#     df = pd.read_pickle(file)
+file_path = f"C:/Users/teunVanerp/Dropbox/2024/TT analysis/Data23/TT_data.pickle"
+with open(file_path, 'rb') as file:
+    # Load the data from the pickle file
+    df = pd.read_pickle(file)
 #
-
-from test import get_pandas_data
-df = get_pandas_data("TT_data.pickle")
+# C:\Users\TeunVanerp\Dropbox\2024\TT analysis\Data23
+# from test import get_pandas_data
+# df = get_pandas_data("TT_data.pickle")
 
 dfnames = df["TTs"]
 dfnames['Date'] = pd.to_datetime(dfnames['Date'], format='%d-%m-%Y')  # Convert to datetime if not already done
@@ -403,7 +403,7 @@ def build_graph(slider, moving, racenewdata, riders, para1, para2, segment):
                             zoom=12,
                             mapbox_style="open-street-map")
 
-
+    print(analyseddata["lon"])
 
     fig1.update_layout(showlegend=False)
 
@@ -444,6 +444,7 @@ def build_graph(slider, moving, racenewdata, riders, para1, para2, segment):
                    ),
         secondary_y=False,
     )
+
 
     for rider in riders:
         dfnew = analyseddata[analyseddata["rider"] == rider]
@@ -499,7 +500,7 @@ def build_graph(slider, moving, racenewdata, riders, para1, para2, segment):
 
 
     # make table 2
-    df_results = analyseddata.groupby('rider').agg({'power': ['max', 'sum'], 'speed': ['sum'],'watts/kg': ['sum'],"timediff": "last"}).round(1)
+    df_results = analyseddata.groupby('rider').agg({'power': ['max', 'mean'], 'speed': ['sum'],'watts/kg': ['mean'],"timediff": "last"}).round(1)
     # Group by rider and aggregate power data
 
 
@@ -513,10 +514,10 @@ def build_graph(slider, moving, racenewdata, riders, para1, para2, segment):
     df_results.columns = df_results.columns.droplevel()
     df_results.reset_index(inplace=True)
     df_results.columns = ["", "max W","avg W", "avg Speed","avg W/kg",'Timediff']
-    print(df_results)
-    print(df_time)
-    df_results["avg W"]=df_results["avg W"]/ df_time['secs']
-    print(df_results)
+    # print(df_results)
+    # print(df_time)
+    # df_results["avg W"]=df_results["avg W"]/ df_time['secs']
+    # print(df_results)
 
 
     #make table with segements
