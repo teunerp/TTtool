@@ -25,8 +25,10 @@ gravity = 9.81
 clicks = 0
 
 # density = 1.233
+dir = "C:/Users/TeunVanerp/Dropbox/2024/Training/"
 
-
+ridersid = pd.read_excel(f"{dir}riders_info.xlsx")
+print(ridersid)
 # To create meta tag for each page, define the title, image, and description.
 dash.register_page(__name__,
                    path='/',  # '/' is home page and it represents the url

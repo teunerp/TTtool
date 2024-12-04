@@ -19,14 +19,14 @@ dash.register_page(__name__,
 
 # df = get_pandas_data("TT_data.pickle")
 # Example usage to load a .pickle file
-file_path = f"C:/Users/teunVanerp/Dropbox/2024/TT analysis/Data23/TT_data.pickle"
-with open(file_path, 'rb') as file:
-    # Load the data from the pickle file
-    df = pd.read_pickle(file)
+# file_path = f"C://Users//teunv//Dropbox (Personal)//2024//TT analysis//Data23//TT_data.pickle"
+# with open(file_path, 'rb') as file:
+#     # Load the data from the pickle file
+#     df = pd.read_pickle(file)
 #
-# C:\Users\TeunVanerp\Dropbox\2024\TT analysis\Data23
-# from test import get_pandas_data
-# df = get_pandas_data("TT_data.pickle")
+
+from test import get_pandas_data
+df = get_pandas_data("TT_data.pickle")
 
 dfnames = df["TTs"]
 dfnames['Date'] = pd.to_datetime(dfnames['Date'], format='%d-%m-%Y')  # Convert to datetime if not already done
