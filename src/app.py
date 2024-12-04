@@ -28,7 +28,7 @@ sidebar = dbc.Nav(
 
 app.layout = dbc.Container([
     dbc.Row([
-        dbc.Col(html.Div("Tudor TT analysis2",
+        dbc.Col(html.Div("Tudor TT analysis3",
                          style={'fontSize':50, 'textAlign':'center'}))
     ]),
 
